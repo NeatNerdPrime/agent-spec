@@ -11,6 +11,14 @@ While Agent Spec itself is purely declarative, its specifications influence runt
 Risks can arise from configurations that include sensitive information, lack proper isolation, or rely on untrusted components.
 This document helps reduce misconfiguration risks and supports the secure execution of the resulting agent.
 
+Considerations regarding generated code and templates
+-----------------------------------------------------
+
+Some adapters can translate Agent Spec representations into runtime-specific source code.
+Generated source should only be produced from specifications that passed validation, reviewed before deployment when the specification is untrusted, and executed with the same isolation expected for application code.
+
+Treat values inserted into prompts, URLs, headers, request bodies, or other executable/runtime-sensitive fields as untrusted data.
+
 Considerations regarding tools
 ------------------------------
 
